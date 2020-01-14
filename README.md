@@ -15,7 +15,7 @@
 <td>HTML form based login and authentication using the Gateway as an IDP</td>
 </tr>
 <tr>
-<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/302-redirect.xml">HTTP 302 Redirect</a></td>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/302-redirect.xml">302 redirect</a></td>
 <td>Send a HTTP 302 to redirect the user agent to another location</td>
 </tr>
 <tr>

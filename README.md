@@ -7,7 +7,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/epoch-to-gmt.xml">Convert epoch to date/time</a></td>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/epoch-to-gmt.xml">Epoch to GMT</a></td>
 <td>Converts epoch time to a human-readable date/time stamp.</td>
 </tr>
 <tr>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:Export Version="3.0"
+    xmlns:L7p="http://www.layer7tech.com/ws/policy"
+    xmlns:exp="http://www.layer7tech.com/ws/policy/export" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+    <exp:References/>
+    <wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+        <wsp:All wsp:Usage="Required">
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** Example of the Add XML element assertion ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** https://github.com/dasjo02/layer7-policy-snippets ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:RequestXpathAssertion>
+                <L7p:VariablePrefix stringValue="out"/>
+                <L7p:XpathExpression xpathExpressionValue="included">
+                    <L7p:Expression stringValue="/bookstore/book"/>
+                    <L7p:Namespaces mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="s"/>
+                            <L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/>
+                        </L7p:entry>
+                    </L7p:Namespaces>
+                    <L7p:XpathVersion xpathVersion="XPATH_2_0"/>
+                </L7p:XpathExpression>
+            </L7p:RequestXpathAssertion>
+            <L7p:SetVariable>
+                <L7p:Base64Expression stringValue="PHByaWNlPiQzMC4wMDwvcHJpY2U+"/>
+                <L7p:VariableToSet stringValue="price"/>
+            </L7p:SetVariable>
+            <L7p:RemoveElement>
+                <L7p:ElementFromVariable stringValue="out.elements"/>
+                <L7p:ElementToInsertVariable stringValue="price"/>
+                <L7p:InsertedElementLocation insertedElementLocation="LAST_CHILD"/>
+            </L7p:RemoveElement>
+            <L7p:HardcodedResponse>
+                <L7p:Base64ResponseBody stringValue="JHtyZXF1ZXN0Lm1haW5wYXJ0fSAK"/>
+            </L7p:HardcodedResponse>
+        </wsp:All>
+    </wsp:Policy>
+</exp:Export>

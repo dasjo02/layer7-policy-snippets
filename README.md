@@ -34,5 +34,9 @@
 <td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/random-number-generator-variable-length.xml">Random number generator (variable length)</a></td>
 <td>Genearte a random number based on a variable length</td>
 </tr> 
+<tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/random-number-generator-variable-length.xml">Add XML Elements</a></td>
+<td>Example of the Add XML Elements assertion</td>
+</tr> 
 </tbody>
 </table>

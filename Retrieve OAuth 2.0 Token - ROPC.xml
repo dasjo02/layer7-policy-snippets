@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:Export Version="3.0"
+    xmlns:L7p="http://www.layer7tech.com/ws/policy"
+    xmlns:exp="http://www.layer7tech.com/ws/policy/export" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+    <exp:References/>
+    <wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+        <wsp:All wsp:Usage="Required">
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** Example of the Retrieve OAuth 2.0 Token assertion  ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** Makes uses of the Resource Owner Password Credentials grant  ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** https://github.com/dasjo02/layer7-policy-snippets ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:SetVariable>
+                <L7p:Base64Expression stringValue="JHtyZXF1ZXN0LnVybC5wcm90b2NvbH06Ly8ke3JlcXVlc3QudXJsLmhvc3R9OiR7cmVxdWVzdC51cmwucG9ydH0vYXV0aC9vYXV0aC92Mi90b2tlbg=="/>
+                <L7p:VariableToSet stringValue="token_endpoint"/>
+            </L7p:SetVariable>
+            <L7p:SetVariable>
+                <L7p:Base64Expression stringValue="NTRmMGM0NTUtNGQ4MC00MjFmLTgyY2EtOTE5NGRmMjQ4NTlk"/>
+                <L7p:VariableToSet stringValue="client_id"/>
+            </L7p:SetVariable>
+            <L7p:SetVariable>
+                <L7p:Base64Expression stringValue="YTBmMjc0MmYtMzFjNy00MzZmLTk4MDItYjcwMTViOGZkOGU2"/>
+                <L7p:VariableToSet stringValue="client_secret"/>
+            </L7p:SetVariable>
+            <L7p:SetVariable>
+                <L7p:Base64Expression stringValue="b29i"/>
+                <L7p:VariableToSet stringValue="scope"/>
+            </L7p:SetVariable>
+            <L7p:RetrieveOAuth2Token>
+                <L7p:AuthEndpoint stringValue=""/>
+                <L7p:ClientId stringValue="${client_id}"/>
+                <L7p:ClientSecretPlainText stringValue="${client_secret}"/>
+                <L7p:GrantType grantType="RESOURCE_OWNER_PASSWORD_CREDENTIALS"/>
+                <L7p:InputParams inputParams="included">
+                    <L7p:item oauthParam="included">
+                        <L7p:IncludeType includeType="ACCESS_TOKEN_REQUEST"/>
+                        <L7p:Name stringValue="scope"/>
+                        <L7p:Value stringValue="${scope}"/>
+                    </L7p:item>
+                </L7p:InputParams>
+                <L7p:IsClientAuthHttpBasic booleanValue="false"/>
+                <L7p:TokenEndpoint stringValue="${token_endpoint}"/>
+                <L7p:UserPasswordPlainText stringValue="7layer"/>
+                <L7p:Username stringValue="admin"/>
+            </L7p:RetrieveOAuth2Token>
+            <L7p:HardcodedResponse>
+                <L7p:Base64ResponseBody stringValue="JHtvYXV0aC5hY2Nlc3NfdG9rZW59IDxicj4KJHtvYXV0aC5hdXRoX3JlcV91cmx9IDxicj4KJHtvYXV0aC5mdWxsX3Rva2VufSA8YnI+CiR7b2F1dGgucmVmcmVzaF90b2tlbn0gPGJyPg=="/>
+                <L7p:ResponseContentType stringValue="text/html; charset=UTF-8"/>
+            </L7p:HardcodedResponse>
+        </wsp:All>
+    </wsp:Policy>
+</exp:Export>

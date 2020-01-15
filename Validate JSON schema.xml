@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:Export Version="3.0"
+    xmlns:L7p="http://www.layer7tech.com/ws/policy"
+    xmlns:exp="http://www.layer7tech.com/ws/policy/export" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+    <exp:References/>
+    <wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+        <wsp:All wsp:Usage="Required">
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** Example of the Validate JSON schema assertion  ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** https://github.com/dasjo02/layer7-policy-snippets ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <wsp:OneOrMore wsp:Usage="Required">
+                <wsp:All wsp:Usage="Required">
+                    <L7p:JSONSchema>
+                        <L7p:JsonSchemaVersion jsonSchemaVersion="DRAFT_V4"/>
+                        <L7p:ResourceInfo staticResourceInfo="included">
+                            <L7p:Document stringValueReference="inline"><![CDATA[{
+    "type": "object",
+    "properties": {
+        "name": {"type": "string"},
+        "product": {"type": "string"},
+        "company": {"type": "string"}
+    },
+    "required": [
+        "name",
+        "product",
+        "company"
+    ],
+    "additionalProperties": false
+}]]></L7p:Document>
+                        </L7p:ResourceInfo>
+                    </L7p:JSONSchema>
+                    <L7p:HardcodedResponse>
+                        <L7p:Base64ResponseBody stringValue="U2NoZW1hIHN1Y2Nlc3NmdWxseSB2YWxpZGF0ZWQ="/>
+                        <L7p:ResponseContentType stringValue="text/plain; charset=UTF-8"/>
+                    </L7p:HardcodedResponse>
+                </wsp:All>
+                <wsp:All wsp:Usage="Required">
+                    <L7p:HardcodedResponse>
+                        <L7p:Base64ResponseBody stringValue="RmFpbHVyZTogJHtqc29uc2NoZW1hLmZhaWx1cmV9"/>
+                        <L7p:ResponseContentType stringValue="text/plain; charset=UTF-8"/>
+                    </L7p:HardcodedResponse>
+                </wsp:All>
+                <L7p:assertionComment>
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="IF valid schema; print success message; else print error"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:assertionComment>
+            </wsp:OneOrMore>
+        </wsp:All>
+    </wsp:Policy>
+</exp:Export>

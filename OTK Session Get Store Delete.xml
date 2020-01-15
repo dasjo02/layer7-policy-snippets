@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:Export Version="3.0"
+    xmlns:L7p="http://www.layer7tech.com/ws/policy"
+    xmlns:exp="http://www.layer7tech.com/ws/policy/export" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+    <exp:References>
+        <EncapsulatedAssertionReference RefType="com.l7tech.console.policy.exporter.EncapsulatedAssertionReference">
+            <Name>OTK Session GET</Name>
+            <Guid>4e4bc164-3fa2-4b15-ba65-31cef45b84b0</Guid>
+        </EncapsulatedAssertionReference>
+        <EncapsulatedAssertionReference RefType="com.l7tech.console.policy.exporter.EncapsulatedAssertionReference">
+            <Name>OTK Session - Store</Name>
+            <Guid>dd360775-0fec-47db-8b45-059d995b262d</Guid>
+        </EncapsulatedAssertionReference>
+        <EncapsulatedAssertionReference RefType="com.l7tech.console.policy.exporter.EncapsulatedAssertionReference">
+            <Name>OTK Session - Delete</Name>
+            <Guid>8d06714c-d54c-48e5-a454-e3c036b67f98</Guid>
+        </EncapsulatedAssertionReference>
+    </exp:References>
+    <wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+        <wsp:All wsp:Usage="Required">
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** Store / Retrieve / Delete OTK Session data  ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** https://github.com/dasjo02/layer7-policy-snippets ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:FaultLevel>
+                <L7p:LevelInfo soapFaultLevel="included">
+                    <L7p:Level intValue="4"/>
+                </L7p:LevelInfo>
+            </L7p:FaultLevel>
+            <L7p:SetVariable>
+                <L7p:Base64Expression stringValue="PGF1dGhvcml6ZT4NCiAgICA8Y2xpZW50TmFtZT5DTElFTlRfTkFNRTwvY2xpZW50TmFtZT4NCjwvYXV0aG9yaXplPg=="/>
+                <L7p:VariableToSet stringValue="sessionValue"/>
+            </L7p:SetVariable>
+            <L7p:SetVariable>
+                <L7p:Base64Expression stringValue="MzAwMA=="/>
+                <L7p:VariableToSet stringValue="ownerCacheAge"/>
+            </L7p:SetVariable>
+            <L7p:SetVariable>
+                <L7p:Base64Expression stringValue="NGY5ODhkZWUtZjlkYS00ODgwLWE3ZjYtODJlZGViOWE0M2Zk"/>
+                <L7p:VariableToSet stringValue="uuid"/>
+            </L7p:SetVariable>
+            <wsp:OneOrMore wsp:Usage="Required">
+                <wsp:All wsp:Usage="Required">
+                    <L7p:ComparisonAssertion>
+                        <L7p:CaseSensitive booleanValue="false"/>
+                        <L7p:Expression1 stringValue="${request.http.parameter.option}"/>
+                        <L7p:Expression2 stringValue="get"/>
+                        <L7p:Predicates predicates="included">
+                            <L7p:item binary="included">
+                                <L7p:CaseSensitive booleanValue="false"/>
+                                <L7p:RightValue stringValue="get"/>
+                            </L7p:item>
+                        </L7p:Predicates>
+                    </L7p:ComparisonAssertion>
+                    <L7p:Encapsulated>
+                        <L7p:EncapsulatedAssertionConfigGuid stringValue="4e4bc164-3fa2-4b15-ba65-31cef45b84b0"/>
+                        <L7p:EncapsulatedAssertionConfigName stringValue="OTK Session GET"/>
+                        <L7p:Parameters mapValue="included">
+                            <L7p:entry>
+                                <L7p:key stringValue="cacheAge"/>
+                                <L7p:value stringValue="${ownerCacheAge}"/>
+                            </L7p:entry>
+                            <L7p:entry>
+                                <L7p:key stringValue="cacheId"/>
+                                <L7p:value stringValue="cacheV1"/>
+                            </L7p:entry>
+                            <L7p:entry>
+                                <L7p:key stringValue="cacheKey"/>
+                                <L7p:value stringValue="${uuid}"/>
+                            </L7p:entry>
+                        </L7p:Parameters>
+                    </L7p:Encapsulated>
+                    <L7p:EncodeDecode>
+                        <L7p:SourceVariableName stringValue="resp.mainpart"/>
+                        <L7p:TargetDataType variableDataType="string"/>
+                        <L7p:TargetVariableName stringValue="resp.mainpart"/>
+                        <L7p:TransformType transformType="URL_DECODE"/>
+                    </L7p:EncodeDecode>
+                    <L7p:HardcodedResponse>
+                        <L7p:Base64ResponseBody stringValue="JHtyZXNwLm1haW5wYXJ0fQ=="/>
+                    </L7p:HardcodedResponse>
+                </wsp:All>
+                <wsp:All wsp:Usage="Required">
+                    <L7p:ComparisonAssertion>
+                        <L7p:CaseSensitive booleanValue="false"/>
+                        <L7p:Expression1 stringValue="${request.http.parameter.option}"/>
+                        <L7p:Expression2 stringValue="store"/>
+                        <L7p:Predicates predicates="included">
+                            <L7p:item binary="included">
+                                <L7p:CaseSensitive booleanValue="false"/>
+                                <L7p:RightValue stringValue="store"/>
+                            </L7p:item>
+                        </L7p:Predicates>
+                    </L7p:ComparisonAssertion>
+                    <L7p:Encapsulated>
+                        <L7p:EncapsulatedAssertionConfigGuid stringValue="dd360775-0fec-47db-8b45-059d995b262d"/>
+                        <L7p:EncapsulatedAssertionConfigName stringValue="OTK Session - Store"/>
+                        <L7p:Parameters mapValue="included">
+                            <L7p:entry>
+                                <L7p:key stringValue="cacheAge"/>
+                                <L7p:value stringValue="${ownerCacheAge}"/>
+                            </L7p:entry>
+                            <L7p:entry>
+                                <L7p:key stringValue="cacheId"/>
+                                <L7p:value stringValue="cacheV1"/>
+                            </L7p:entry>
+                            <L7p:entry>
+                                <L7p:key stringValue="cacheKey"/>
+                                <L7p:value stringValue="${uuid}"/>
+                            </L7p:entry>
+                            <L7p:entry>
+                                <L7p:key stringValue="cacheMaxEntries"/>
+                                <L7p:value stringValue="1000"/>
+                            </L7p:entry>
+                            <L7p:entry>
+                                <L7p:key stringValue="cacheMaxSize"/>
+                                <L7p:value stringValue="10000"/>
+                            </L7p:entry>
+                            <L7p:entry>
+                                <L7p:key stringValue="dbAge"/>
+                                <L7p:value stringValue=""/>
+                            </L7p:entry>
+                            <L7p:entry>
+                                <L7p:key stringValue="value"/>
+                                <L7p:value stringValue="${sessionValue}"/>
+                            </L7p:entry>
+                        </L7p:Parameters>
+                    </L7p:Encapsulated>
+                    <L7p:HardcodedResponse>
+                        <L7p:Base64ResponseBody stringValue="U2Vzc2lvbiBkYXRhIHN0b3JlZDoKCiR7c2Vzc2lvblZhbHVlfQ=="/>
+                        <L7p:ResponseContentType stringValue="text/plain; charset=UTF-8"/>
+                    </L7p:HardcodedResponse>
+                </wsp:All>
+                <wsp:All wsp:Usage="Required">
+                    <L7p:ComparisonAssertion>
+                        <L7p:CaseSensitive booleanValue="false"/>
+                        <L7p:Expression1 stringValue="${request.http.parameter.option}"/>
+                        <L7p:Expression2 stringValue="delete"/>
+                        <L7p:Predicates predicates="included">
+                            <L7p:item binary="included">
+                                <L7p:CaseSensitive booleanValue="false"/>
+                                <L7p:RightValue stringValue="delete"/>
+                            </L7p:item>
+                        </L7p:Predicates>
+                    </L7p:ComparisonAssertion>
+                    <L7p:Encapsulated>
+                        <L7p:EncapsulatedAssertionConfigGuid stringValue="8d06714c-d54c-48e5-a454-e3c036b67f98"/>
+                        <L7p:EncapsulatedAssertionConfigName stringValue="OTK Session - Delete"/>
+                        <L7p:Parameters mapValue="included">
+                            <L7p:entry>
+                                <L7p:key stringValue="cacheAge"/>
+                                <L7p:value stringValue="${ownerCacheAge}"/>
+                            </L7p:entry>
+                            <L7p:entry>
+                                <L7p:key stringValue="cacheId"/>
+                                <L7p:value stringValue="cacheV1"/>
+                            </L7p:entry>
+                            <L7p:entry>
+                                <L7p:key stringValue="cacheKey"/>
+                                <L7p:value stringValue="${uuid}"/>
+                            </L7p:entry>
+                            <L7p:entry>
+                                <L7p:key stringValue="cacheMaxEntries"/>
+                                <L7p:value stringValue="10000"/>
+                            </L7p:entry>
+                            <L7p:entry>
+                                <L7p:key stringValue="cacheMaxSize"/>
+                                <L7p:value stringValue="10000"/>
+                            </L7p:entry>
+                        </L7p:Parameters>
+                    </L7p:Encapsulated>
+                    <L7p:HardcodedResponse>
+                        <L7p:Base64ResponseBody stringValue="U2Vzc2lvbiBkYXRhIGRlbGV0ZWQ6ICR7cmVzcC5tYWlucGFydH0="/>
+                        <L7p:ResponseContentType stringValue="text/html; charset=UTF-8"/>
+                    </L7p:HardcodedResponse>
+                </wsp:All>
+                <wsp:All wsp:Usage="Required">
+                    <L7p:HardcodedResponse>
+                        <L7p:Base64ResponseBody stringValue="UGxlYXNlIHByb3ZpZGVhIHZhbHVlIGZvciB0aGUgT1BUSU9OIHF1ZXJ5IHBhcmFtZXRlcjoKPGJyPgo8YSBocmVmPSIke3JlcXVlc3QudXJsLnByb3RvY29sfTovLyR7cmVxdWVzdC51cmwuaG9zdH06JHtyZXF1ZXN0LnVybC5wb3J0fSR7cmVxdWVzdC51cmwucGF0aH0/b3B0aW9uPWdldCI+R0VUPC9hPiA8YnI+CjxhIGhyZWY9IiR7cmVxdWVzdC51cmwucHJvdG9jb2x9Oi8vJHtyZXF1ZXN0LnVybC5ob3N0fToke3JlcXVlc3QudXJsLnBvcnR9JHtyZXF1ZXN0LnVybC5wYXRofT9vcHRpb249c3RvcmUiPlNUT1JFPC9hPiA8YnI+CjxhIGhyZWY9IiR7cmVxdWVzdC51cmwucHJvdG9jb2x9Oi8vJHtyZXF1ZXN0LnVybC5ob3N0fToke3JlcXVlc3QudXJsLnBvcnR9JHtyZXF1ZXN0LnVybC5wYXRofT9vcHRpb249ZGVsZXRlIj5ERUxFVEU8L2E+IDxicj4KCg=="/>
+                        <L7p:ResponseContentType stringValue="text/html; charset=UTF-8"/>
+                    </L7p:HardcodedResponse>
+                </wsp:All>
+            </wsp:OneOrMore>
+        </wsp:All>
+    </wsp:Policy>
+</exp:Export>

@@ -1,0 +1,8 @@
+<bookstore>
+<book category="API">
+   <title lang="en">CA API Management</title>
+   <author>John Doe</author>
+   <year>2017</year>
+   <price>30.00</price>
+</book>
+</bookstore>

@@ -32,12 +32,12 @@
 </td>
 </tr>
 <tr>
-<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Retrieve-OAuth-2.0-Token-Sample.xml">Retrieve OAuth 2.0 Token</a></td>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Retrieve OAuth 2.0 Token.xml">Retrieve OAuth 2.0 Token</a></td>
 <td>An example of how to use the MAG Retrieve OAuth 2.0 Token assertion using the Authorization Code grant</td>
  <td></td>
 </tr>
 <tr>
-<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/random-number-generator-variable-length.xml">Random number generator (variable length)</a></td>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Random number generator (variable length).xml">Random number generator (variable length)</a></td>
 <td>Genearte a random number based on a variable length</td>
  <td></td>
 </tr> 

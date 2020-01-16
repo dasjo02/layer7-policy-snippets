@@ -39,13 +39,13 @@
 <tr>
 <td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Pseudorandom number generator (variable length).xml">Pseudorandom number generator (variable length)</a></td>
 <td>Generate a pseudorandom number based on a variable length</td>
- <td></td>
+ <td>Set the context variable <b>Length</b> to the desired output length</td>
 </tr> 
  
 <tr>
-<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Pseudorandom Alphanumeric String.xml"Pseudorandom Alphanumeric String.xml</a></td>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Pseudorandom Alphanumeric String.xml">Pseudorandom Alphanumeric String</a></td>
 <td>Generate a pseudorandom alphanumeric string with a variable length</td>
- <td></td>
+ <td>Set the context variable <b>Length</b> to the desired output length</td>
 </tr> 
 
 <tr>
@@ -136,7 +136,7 @@ Makes use of the OAuth test client ID and secret. If the test clients are not in
    <li>Accept any warnings and click finish. You can now test the policy by navigating to the endpoint a browser.</li>
   </ol>
   <br>
-  To modify this policy for verifying a JWT issued by someone else
+  To modify this policy for verifying a JWT issued by someone else <br>
   <ol>
    <li>Add the JWT to the policy in the variable named JWT</li>
    <li>Change the route assertion URL to point to your JWKS endpoint</li>

@@ -37,11 +37,17 @@
  <td></td>
 </tr>
 <tr>
-<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Random number generator (variable length).xml">Random number generator (variable length)</a></td>
-<td>Genearte a random number based on a variable length</td>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Pseudorandom number generator (variable length).xml">Pseudorandom number generator (variable length)</a></td>
+<td>Generate a pseudorandom number based on a variable length</td>
  <td></td>
 </tr> 
  
+<tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Pseudorandom Alphanumeric String.xml"Pseudorandom Alphanumeric String.xml</a></td>
+<td>Generate a pseudorandom alphanumeric string with a variable length</td>
+ <td></td>
+</tr> 
+
 <tr>
 <td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Add%20XML%20Elements.xml">Add XML Elements</a></td>
 <td>Example of the Add XML Elements assertion</td>

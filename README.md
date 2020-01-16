@@ -120,14 +120,14 @@ Makes use of the OAuth test client ID and secret. If the test clients are not in
    <li>Navigate to the <a href="https://developers.google.com/oauthplayground">Google OAuth Playground</a> to generate a JWT</li>
    <li>Select any of the available APIs (i.e: Gmail API v1) and in the 'Input your own scopes' box enter <b>openid</b>. Click the 'Authorize APIs' button</li>
    <li>Log in using a Google account</li>
-   <li>Review the requested access permissions and authorize access if comfortable with the permissions. You are then retured to the OAuth playground</li>
+   <li>Review the requested access permissions and authorize access if comfortable with the permissions. You are then returned to the OAuth playground</li>
    <li>Click the 'Exchange authorization code for tokens' button</li>
    <li>An <b>id_token</b> will be returned in the lower pane. Copy this value</li>
    <li>Load the attached policy into Policy Manager</li>
    <li>Locate the JWT context variable and set it to the copied value. Save and Activate the policy</li>
    <li>Navigate to Tasks -> Certificates, Keys and Secrets -> Manage Certificates</li>
    <li>Click the Add button and paste this URL into the 'Retrieve via SSL Connection' field: https://www.googleapis.com</li>
-   <li>Accept any warnings and click finish. You can now test the policy by naviating to the endpoint a browser.</li>
+   <li>Accept any warnings and click finish. You can now test the policy by navigating to the endpoint a browser.</li>
   </ol>
   <br>
   To modify this policy for verifying a JWT issued by someone else

@@ -118,6 +118,14 @@ Makes use of the OAuth test client ID and secret. If the test clients are not in
 </tr> 
 
 <tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Base64url encode.xml">Base64url encode</a></td>
+ <td>Encapsulated assertion to perform base64url encoding of a string</td>
+ <td>Output variable: ${output}</td>
+</tr> 
+
+
+
+<tr>
 <td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/JWKS.xml">JWKS</a></td>
  <td>Validating a JWT with JWKS</td>
  <td>

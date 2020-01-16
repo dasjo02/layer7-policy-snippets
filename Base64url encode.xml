@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:Export Version="3.0"
+    xmlns:L7p="http://www.layer7tech.com/ws/policy"
+    xmlns:exp="http://www.layer7tech.com/ws/policy/export" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+    <exp:References/>
+    <wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+        <wsp:All wsp:Usage="Required">
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="Policy Fragment: b64url"/>
+            </L7p:CommentAssertion>
+            <L7p:EncodeDecode>
+                <L7p:SourceVariableName stringValue="src"/>
+                <L7p:TargetDataType variableDataType="string"/>
+                <L7p:TargetVariableName stringValue="src"/>
+                <L7p:TransformType transformType="BASE64_ENCODE"/>
+            </L7p:EncodeDecode>
+            <L7p:EncodeDecode>
+                <L7p:SourceVariableName stringValue="src"/>
+                <L7p:TargetDataType variableDataType="string"/>
+                <L7p:TargetVariableName stringValue="src"/>
+                <L7p:TransformType transformType="URL_ENCODE"/>
+            </L7p:EncodeDecode>
+            <L7p:Regex>
+                <L7p:AutoTarget booleanValue="false"/>
+                <L7p:OtherTargetMessageVariable stringValue="src"/>
+                <L7p:Regex stringValue="=|=="/>
+                <L7p:Replace booleanValue="true"/>
+                <L7p:Replacement stringValue=""/>
+                <L7p:Target target="OTHER"/>
+            </L7p:Regex>
+            <L7p:Regex>
+                <L7p:AutoTarget booleanValue="false"/>
+                <L7p:OtherTargetMessageVariable stringValue="src"/>
+                <L7p:Regex stringValue="\+"/>
+                <L7p:Replace booleanValue="true"/>
+                <L7p:Replacement stringValue="-"/>
+                <L7p:Target target="OTHER"/>
+            </L7p:Regex>
+            <L7p:Regex>
+                <L7p:AutoTarget booleanValue="false"/>
+                <L7p:OtherTargetMessageVariable stringValue="src"/>
+                <L7p:Regex stringValue="\/"/>
+                <L7p:Replace booleanValue="true"/>
+                <L7p:Replacement stringValue="_"/>
+                <L7p:Target target="OTHER"/>
+            </L7p:Regex>
+            <L7p:Regex>
+                <L7p:AutoTarget booleanValue="false"/>
+                <L7p:CaptureVar stringValue="output"/>
+                <L7p:OtherTargetMessageVariable stringValue="src"/>
+                <L7p:Regex stringValue="%3D"/>
+                <L7p:Replace booleanValue="true"/>
+                <L7p:Replacement stringValue=""/>
+                <L7p:Target target="OTHER"/>
+            </L7p:Regex>
+            <L7p:SetVariable>
+                <L7p:Base64Expression stringValue="JHtzcmN9"/>
+                <L7p:VariableToSet stringValue="output"/>
+            </L7p:SetVariable>
+        </wsp:All>
+    </wsp:Policy>
+</exp:Export>

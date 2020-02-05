@@ -6,7 +6,7 @@
         <PrivateKeyReference RefType="com.l7tech.console.policy.exporter.PrivateKeyReference">
             <IsDefaultKey>false</IsDefaultKey>
             <KeystoreOID>00000000000000000000000000000002</KeystoreOID>
-            <KeyAlias>danal03-ssg930-1.lvn.broadcom.net</KeyAlias>
+            <KeyAlias>gateway.com</KeyAlias>
         </PrivateKeyReference>
     </exp:References>
     <wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
@@ -67,7 +67,7 @@
                                 </L7p:entry>
                             </L7p:Properties>
                         </L7p:AssertionComment>
-                        <L7p:KeyAlias stringValue="danal03-ssg930-1.lvn.broadcom.net"/>
+                        <L7p:KeyAlias stringValue="gateway.com"/>
                         <L7p:KeyGoid goidValue="00000000000000000000000000000002"/>
                         <L7p:SignPayload booleanValue="true"/>
                         <L7p:SignatureAlgorithm stringValue="RS256"/>

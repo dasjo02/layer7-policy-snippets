@@ -130,6 +130,14 @@ Makes use of the OAuth test client ID and secret. If the test clients are not in
 </tr> 
 
 <tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Split Multivalued Query Parameter.xml">Split A Multivalued Query Parameter</a></td>
+ <td>Checks for and splits a query parameter that may have multiple values. </td>
+ <td>Example: gateway.com/test?attributes=x,y,z <br><br>
+   Change line 7 to accomodate the name of the query parameter of your choosing as well as the delimiting character.
+ </td>
+</tr> 
+
+<tr>
 <td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Validate JWT Signature with PEM.xml">Validate JWT Signature with a PEM</a></td>
  <td>Example of validating a JWT signature using a PEM stored in a context variable</td>
  <td>This policy will generate and sign a JWT using a private key on the Gateway. It will then demonstrate decoding a JWT using a key in PEM format, stored in a context variable. <br><Br>

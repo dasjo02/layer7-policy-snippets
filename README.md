@@ -123,6 +123,26 @@ Makes use of the OAuth test client ID and secret. If the test clients are not in
  <td>Output variable: ${output}</td>
 </tr> 
 
+<tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Validate JWT Signature with PEM.xml">Validate JWT Signature with a PEM</a></td>
+ <td>Example of validating a JWT signature using a PEM stored in a context variable</td>
+ <td>This policy will generate and sign a JWT using a private key on the Gateway. It will then demonstrate decoding a JWT using a key in PEM format, stored in a context variable. <br><Br>
+ <ol>
+  <li>Import the policy into policy manager</li>
+  <li>Change the key used to sign the JWT (line 12) to a key on your Gateway</li>
+  <li>Extract the certificate from the P12 using openssl or a tool of your choosing
+    <ul>
+     <li>Export the P12 using the manage private key dialog in policy manager</li>
+     <li>Using openssl, run the command: 
+       openssl pkcs12 -in store.p12 -out cer.pem </li>
+     <li>Open the resulting cer.pem and copy the key starting with the BAG ATTRIBUTES and ending with END CERTIFICATE. An example is shown in the policy</li>
+     <li>Copy the above into the PEM context variable</li>
+   </ul>
+  </li>
+  <li>Hit the endpoint to confirm it is working</li>
+  </ol>
+ </td>
+</tr> 
 
 
 <tr>

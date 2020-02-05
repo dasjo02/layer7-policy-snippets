@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:Export Version="3.0"
+    xmlns:L7p="http://www.layer7tech.com/ws/policy"
+    xmlns:exp="http://www.layer7tech.com/ws/policy/export" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+    <exp:References>
+        <PrivateKeyReference RefType="com.l7tech.console.policy.exporter.PrivateKeyReference">
+            <IsDefaultKey>false</IsDefaultKey>
+            <KeystoreOID>00000000000000000000000000000002</KeystoreOID>
+            <KeyAlias>danal03-ssg930-1.lvn.broadcom.net</KeyAlias>
+        </PrivateKeyReference>
+    </exp:References>
+    <wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+        <wsp:All wsp:Usage="Required">
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** Verify JWT signature using a PEM file from a variable ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** https://github.com/dasjo02/layer7-policy-snippets                  ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:FaultLevel>
+                <L7p:LevelInfo soapFaultLevel="included">
+                    <L7p:Level intValue="4"/>
+                </L7p:LevelInfo>
+            </L7p:FaultLevel>
+            <L7p:SetVariable>
+                <L7p:AssertionComment assertionComment="included">
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="Used to encode and sign a JWT using a private key"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:AssertionComment>
+                <L7p:Base64Expression stringValue="ew0KICAic3ViIjogIjEyMzQ1Njc4OTAiLA0KICAibmFtZSI6ICJKb2huIERvZSIsDQogICJhZG1pbiI6IHRydWUNCn0="/>
+                <L7p:VariableToSet stringValue="payload"/>
+            </L7p:SetVariable>
+            <L7p:SetVariable>
+                <L7p:Base64Expression stringValue="aGVhZGVyDQp7DQogICJhbGciOiAiSFMyNTYiLA0KICAidHlwIjogIkpXVCINCn0="/>
+                <L7p:VariableToSet stringValue="header"/>
+            </L7p:SetVariable>
+            <L7p:SetVariable>
+                <L7p:AssertionComment assertionComment="included">
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="The PEM file used to verify the signature"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:AssertionComment>
+                <L7p:Base64Expression stringValue="QmFnIEF0dHJpYnV0ZXMNCiAgICBsb2NhbEtleUlEOiB4eCB4eCB4eCB4eCB4eCB4eCB4eCB4eCB4eCB4eCB4eCB4eCB4eCB4eCB4eCB4eCB4eCB4eCB4eCB4eA0KICAgIGZyaWVuZGx5TmFtZTogZ2F0ZXdheS5jb20NCnN1YmplY3Q9L0NOPWdhdGV3YXkuY29tDQppc3N1ZXI9L0NOPWdhdGV3YXkuY29tDQotLS0tLUJFR0lOIENFUlRJRklDQVRFLS0tLS0NClZrWldjMU5zU2taaFJsWlNUVVUxUTFkcVJtdGliRVpaV2tWd1VtRXdXblZWTVZaM1VXeFJlbUl6YkZkV2VsWk0NCldWZHNNRk50U25KVWF6VlNWa1ZLU1ZWVVJrOWxSa2w0Vkd0d1dtRnJOVVpXVmxaWFVURktSbEpzV2xKV1ZFWkYNCldrUk9iMVJIUm5KU2JscFNZbGRTVUZadFpIZFJNVVpXVFZaV1ZGWnRVbFJaVldSTFpFWktkVlJyTlZOU1ZFVjMNClYxaHdUMVF5U25KUFZsWlZWMGRTVGxaclZsZE5WbXh5WVVkR2ExWllhREJWTWpWellWVXhjbGR1U2xoV1JXc3gNCldrVldOR1JGTlZobFIzUlRVbFZhYzFWdE5XcGtNbFpHVDFaV1UxZEhhRTlWYTFwSFRrVk9jazVXVmxOWFIyaFANCldsZDRTMkZHU25WWk0yUnNWbFJXUmxWc2FHOVViRXBHWWtSU1ZXRXhTa2RhVlZWNFRteFdkRkpyTlZKTk1sRXcNClZYcEtkMUZ0U1hkVGJUVlZZa1p3UkZWV1ZYaFdWazVYV2taT2FGSXdjREJWYlRWUFZHeEtSazFVUWxwbGF6VlENCldXMXpOVlpXVWxsWk1IUlZVbXhLUjFwR1pFdFRWbVIxVm1zeGFWWllRVEZYVjNCTFVqSkZlR0V6YkZCWFJrcE8NCldXeFNWMk14Y0VaVmExSlNUVVZhVlZVeGFHdFNWbFpYWWtWMFZFMXFiR2hWTVdSdlRXeHJkMDVWU2xaV1ZscEUNClZWZDRSMUZzU2toYVJ6VlRWbXRLUTFWclZrOVNSa1pYVW01YVVtUXpRblZYYWtKWFVURkdWbU5JVmxwaE1XdDYNClYxZDBNRlpHVFhsVmJtUlZUVEZHTTFaR1drTlJhekZFVDBoc1RFMXJjREphVlZKWFRrWk5lRkpyY0V4bGJYaEUNClYxZHdWazVGTlhSbFNFSlRVbGhSTVZscmFGZGtWMHB6VVc1c2FsWllaREphUjNSUFRrZFdkRmRyTVU5TmExVjUNClVUSXhUMUpXV25STlZuQnBVMGRTYjFRd1l6RlRSVEZ3VDBoYVZsSlhhRnBYVkU1WFVsVXhSMkpIYUZWU1JuQk0NClZrWldUMkZ0U1hoaU0wcHNWa2Q0UzFaWWNGTldIQ3FyanBzMWZoeEtMcG8NCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0="/>
+                <L7p:VariableToSet stringValue="pem"/>
+            </L7p:SetVariable>
+            <wsp:OneOrMore wsp:Usage="Required">
+                <wsp:All wsp:Usage="Required">
+                    <L7p:EncodeJsonWebToken>
+                        <L7p:AssertionComment assertionComment="included">
+                            <L7p:Properties mapValue="included">
+                                <L7p:entry>
+                                    <L7p:key stringValue="RIGHT.COMMENT"/>
+                                    <L7p:value stringValue="Encode a JWT using a private key on the Gateway"/>
+                                </L7p:entry>
+                            </L7p:Properties>
+                        </L7p:AssertionComment>
+                        <L7p:KeyAlias stringValue="danal03-ssg930-1.lvn.broadcom.net"/>
+                        <L7p:KeyGoid goidValue="00000000000000000000000000000002"/>
+                        <L7p:SignPayload booleanValue="true"/>
+                        <L7p:SignatureAlgorithm stringValue="RS256"/>
+                        <L7p:SignatureSourceType intValue="1"/>
+                        <L7p:SourceVariable stringValue="${payload}"/>
+                        <L7p:TargetVariable stringValue="jwt_encoded"/>
+                    </L7p:EncodeJsonWebToken>
+                    <L7p:DecodeJsonWebToken>
+                        <L7p:AssertionComment assertionComment="included">
+                            <L7p:Properties mapValue="included">
+                                <L7p:entry>
+                                    <L7p:key stringValue="RIGHT.COMMENT"/>
+                                    <L7p:value stringValue="Decode JWT using a PEM from variable"/>
+                                </L7p:entry>
+                            </L7p:Properties>
+                        </L7p:AssertionComment>
+                        <L7p:KeyType stringValue="Certificate"/>
+                        <L7p:PrivateKeySource stringValue="${PEM}"/>
+                        <L7p:SourcePayload stringValue="${jwt_encoded.compact}"/>
+                        <L7p:TargetVariablePrefix stringValue="output"/>
+                        <L7p:ValidationType stringValue="Using Recipient Key From Context Variable"/>
+                    </L7p:DecodeJsonWebToken>
+                    <L7p:HardcodedResponse>
+                        <L7p:Base64ResponseBody stringValue="SldUOiAke2p3dF9lbmNvZGVkLmNvbXBhY3R9CgpJcyBWYWxpZD86ICR7b3V0cHV0LnZhbGlkfQ=="/>
+                        <L7p:ResponseContentType stringValue="text/plain; charset=UTF-8"/>
+                    </L7p:HardcodedResponse>
+                </wsp:All>
+                <wsp:All wsp:Usage="Required">
+                    <L7p:HardcodedResponse>
+                        <L7p:Base64ResponseBody stringValue="U29tZXRoaW5nIHdlbnQgd3Jvbmcu"/>
+                        <L7p:ResponseContentType stringValue="text/plain; charset=UTF-8"/>
+                    </L7p:HardcodedResponse>
+                </wsp:All>
+            </wsp:OneOrMore>
+        </wsp:All>
+    </wsp:Policy>
+</exp:Export>

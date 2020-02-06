@@ -138,6 +138,19 @@ Makes use of the OAuth test client ID and secret. If the test clients are not in
 </tr> 
 
 <tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/XpathExpressions.xml">Examples of XPath Expressions</a></td>
+ <td>Examples of XPath Expressions </td>
+ <td></td>
+</tr> 
+
+<tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/JSONPathExpressions.xml">Examples of JSON Path Expressions</a></td>
+ <td>Examples of JSON Path Expressions</td>
+ <td></td>
+</tr> 
+
+
+<tr>
 <td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Basic Auth to JWT.xml">Convert an Authorization header to JWT</a></td>
  <td>Extract the username and password from an authorization header and convert to a JWT</td>
  <td>

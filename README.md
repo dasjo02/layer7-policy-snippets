@@ -138,6 +138,18 @@ Makes use of the OAuth test client ID and secret. If the test clients are not in
 </tr> 
 
 <tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Basic Auth to JWT.xml">Convert an Authorization header to JWT</a></td>
+ <td>Extract the username and password from an authorization header and convert to a JWT</td>
+ <td>
+  <ul>
+   <li>Change the formatting of the JWT and claims by editing the variable at line 19</li>
+   <li>Header length is limited to 128 characters, this is configurable on line 13</li>
+   <li>User name and password length is limited to 64 characters each, this is configurable on line 16</li>
+  </ul>
+ </td>
+</tr> 
+
+<tr>
 <td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Validate JWT Signature with PEM.xml">Validate JWT Signature with a PEM</a></td>
  <td>Example of validating a JWT signature using a PEM stored in a context variable</td>
  <td>This policy will generate and sign a JWT using a private key on the Gateway. It will then demonstrate decoding a JWT using a key in PEM format, stored in a context variable. <br><Br>

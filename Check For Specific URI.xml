@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:Export Version="3.0"
+    xmlns:L7p="http://www.layer7tech.com/ws/policy"
+    xmlns:exp="http://www.layer7tech.com/ws/policy/export" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+    <exp:References/>
+    <wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+        <wsp:All wsp:Usage="Required">
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** Check/Allow for only specific URI ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** https://github.com/dasjo02/layer7-policy-snippets                  ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:FaultLevel>
+                <L7p:LevelInfo soapFaultLevel="included">
+                    <L7p:Level intValue="4"/>
+                </L7p:LevelInfo>
+            </L7p:FaultLevel>
+            <wsp:OneOrMore wsp:Usage="Required">
+                <wsp:All wsp:Usage="Required">
+                    <L7p:Regex>
+                        <L7p:AutoTarget booleanValue="false"/>
+                        <L7p:OtherTargetMessageVariable stringValue="request.http.uri"/>
+                        <L7p:Regex stringValue="/app$|/site$|/payment$|/refund$|/refer$"/>
+                        <L7p:Replacement stringValue=""/>
+                        <L7p:Target target="OTHER"/>
+                    </L7p:Regex>
+                    <L7p:HardcodedResponse>
+                        <L7p:Base64ResponseBody stringValue="UGFnZSBmb3VuZDoKJHtSZXF1ZXN0Lmh0dHAudXJpfQ=="/>
+                        <L7p:ResponseContentType stringValue="text/plain; charset=UTF-8"/>
+                    </L7p:HardcodedResponse>
+                </wsp:All>
+                <wsp:All wsp:Usage="Required">
+                    <L7p:HardcodedResponse>
+                        <L7p:Base64ResponseBody stringValue="UGFnZSBub3QgZm91bmQKJHtyZXF1ZXN0Lmh0dHAudXJpfQ=="/>
+                        <L7p:ResponseContentType stringValue="text/plain; charset=UTF-8"/>
+                        <L7p:ResponseStatus stringValue="404"/>
+                    </L7p:HardcodedResponse>
+                </wsp:All>
+            </wsp:OneOrMore>
+        </wsp:All>
+    </wsp:Policy>
+</exp:Export>

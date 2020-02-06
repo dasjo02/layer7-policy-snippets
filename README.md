@@ -123,6 +123,65 @@ Makes use of the OAuth test client ID and secret. If the test clients are not in
  <td>Output variable: ${output}</td>
 </tr> 
 
+<tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Check For Specific URI.xml">Check For Specific URI</a></td>
+ <td>Checks and validates requests for a specific URI</td>
+ <td>Useful for a message-received or wildcard policy where only certain URIs want to be permitted. Simply edit the RegEx on line 9 to include any specific URI you wish to allow.</td>
+</tr> 
+
+<tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Split Multivalued Query Parameter.xml">Split A Multivalued Query Parameter</a></td>
+ <td>Checks for and splits a query parameter that may have multiple values. </td>
+ <td>Example: gateway.com/test?attributes=x,y,z <br><br>
+   Change line 7 to accomodate the name of the query parameter of your choosing as well as the delimiting character.
+ </td>
+</tr> 
+
+<tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/XpathExpressions.xml">Examples of XPath Expressions</a></td>
+ <td>Examples of XPath Expressions </td>
+ <td></td>
+</tr> 
+
+<tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/JSONPathExpressions.xml">Examples of JSON Path Expressions</a></td>
+ <td>Examples of JSON Path Expressions</td>
+ <td></td>
+</tr> 
+
+
+<tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Basic Auth to JWT.xml">Convert an Authorization header to JWT</a></td>
+ <td>Extract the username and password from an authorization header and convert to a JWT</td>
+ <td>
+  <ul>
+   <li>Change the formatting of the JWT and claims by editing the variable at line 19</li>
+   <li>Header length is limited to 128 characters, this is configurable on line 13</li>
+   <li>User name and password length is limited to 64 characters each, this is configurable on line 16</li>
+  </ul>
+ </td>
+</tr> 
+
+<tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Validate JWT Signature with PEM.xml">Validate JWT Signature with a PEM</a></td>
+ <td>Example of validating a JWT signature using a PEM stored in a context variable</td>
+ <td>This policy will generate and sign a JWT using a private key on the Gateway. It will then demonstrate decoding a JWT using a key in PEM format, stored in a context variable. <br><Br>
+ <ol>
+  <li>Import the policy into policy manager</li>
+  <li>Change the key used to sign the JWT (line 12) to a key on your Gateway</li>
+  <li>Extract the certificate from the P12 using openssl or a tool of your choosing
+    <ul>
+     <li>Export the P12 using the manage private key dialog in policy manager</li>
+     <li>Using openssl, run the command: 
+       openssl pkcs12 -in store.p12 -out cer.pem </li>
+     <li>Open the resulting cer.pem and copy the key starting with the BAG ATTRIBUTES and ending with END CERTIFICATE. An example is shown in the policy</li>
+     <li>Copy the above into the PEM context variable</li>
+   </ul>
+  </li>
+  <li>Hit the endpoint to confirm it is working</li>
+  </ol>
+ </td>
+</tr> 
 
 
 <tr>

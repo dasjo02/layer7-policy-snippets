@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:Export Version="3.0"
+    xmlns:L7p="http://www.layer7tech.com/ws/policy"
+    xmlns:exp="http://www.layer7tech.com/ws/policy/export" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+    <exp:References/>
+    <wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+        <wsp:All wsp:Usage="Required">
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** XPath Expression Examples ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** https://github.com/dasjo02/layer7-policy-snippets                  ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:FaultLevel>
+                <L7p:LevelInfo soapFaultLevel="included">
+                    <L7p:Level intValue="4"/>
+                </L7p:LevelInfo>
+            </L7p:FaultLevel>
+            <L7p:SetVariable>
+                <L7p:Base64Expression stringValue="PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiID8+DQoJPHN0b3JlPg0KCQk8Ym9vaz4NCgkJCTxjYXRlZ29yeT5yZWZlcmVuY2U8L2NhdGVnb3J5Pg0KCQkJPGF1dGhvcj5OaWdlbCBSZWVzPC9hdXRob3I+DQoJCQk8dGl0bGU+U2F5aW5ncyBvZiB0aGUgQ2VudHVyeTwvdGl0bGU+DQoJCQk8cHJpY2U+OC45NTwvcHJpY2U+DQoJCTwvYm9vaz4NCgkJPGJvb2s+DQoJCQk8Y2F0ZWdvcnk+ZmljdGlvbjwvY2F0ZWdvcnk+DQoJCQk8YXV0aG9yPkV2ZWx5biBXYXVnaDwvYXV0aG9yPg0KCQkJPHRpdGxlPlN3b3JkIG9mIEhvbm91cjwvdGl0bGU+DQoJCQk8cHJpY2U+MTIuOTk8L3ByaWNlPg0KCQk8L2Jvb2s+DQoJCTxib29rPg0KCQkJPGNhdGVnb3J5PmZpY3Rpb248L2NhdGVnb3J5Pg0KCQkJPGF1dGhvcj5IZXJtYW4gTWVsdmlsbGU8L2F1dGhvcj4NCgkJCTx0aXRsZT5Nb2J5IERpY2s8L3RpdGxlPg0KCQkJPGlzYm4+MC01NTMtMjEzMTEtMzwvaXNibj4NCgkJCTxwcmljZT44Ljk5PC9wcmljZT4NCgkJPC9ib29rPg0KCQk8Ym9vaz4NCgkJCTxjYXRlZ29yeT5maWN0aW9uPC9jYXRlZ29yeT4NCgkJCTxhdXRob3I+Si4gUi4gUi4gVG9sa2llbjwvYXV0aG9yPg0KCQkJPHRpdGxlPlRoZSBMb3JkIG9mIHRoZSBSaW5nczwvdGl0bGU+DQoJCQk8aXNibj4wLTM5NS0xOTM5NS04PC9pc2JuPg0KCQkJPHByaWNlPjIyLjk5PC9wcmljZT4NCgkJPC9ib29rPg0KCQk8YmljeWNsZT4NCgkJCTxjb2xvcj5yZWQ8L2NvbG9yPg0KCQkJPHByaWNlPjE5Ljk1PC9wcmljZT4NCgkJPC9iaWN5Y2xlPg0KCTwvc3RvcmU+"/>
+                <L7p:ContentType stringValue="text/xml; charset=utf-8"/>
+                <L7p:DataType variableDataType="message"/>
+                <L7p:VariableToSet stringValue="msg"/>
+            </L7p:SetVariable>
+            <L7p:ResponseXpathAssertion>
+                <L7p:AssertionComment assertionComment="included">
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="Subscript Operator - Fixed"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:AssertionComment>
+                <L7p:VariablePrefix stringValue="fixedSubscript"/>
+                <L7p:XmlMsgSrc stringValue="msg"/>
+                <L7p:XpathExpression xpathExpressionValue="included">
+                    <L7p:Expression stringValue="/store/book[2]"/>
+                    <L7p:Namespaces mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="s"/>
+                            <L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/>
+                        </L7p:entry>
+                    </L7p:Namespaces>
+                    <L7p:XpathVersion xpathVersion="XPATH_1_0"/>
+                </L7p:XpathExpression>
+            </L7p:ResponseXpathAssertion>
+            <L7p:ResponseXpathAssertion>
+                <L7p:AssertionComment assertionComment="included">
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="Subscript Operator - Expression"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:AssertionComment>
+                <L7p:VariablePrefix stringValue="expressionSubscript"/>
+                <L7p:XmlMsgSrc stringValue="msg"/>
+                <L7p:XpathExpression xpathExpressionValue="included">
+                    <L7p:Expression stringValue="/store/book[last()]"/>
+                    <L7p:Namespaces mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="s"/>
+                            <L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/>
+                        </L7p:entry>
+                    </L7p:Namespaces>
+                    <L7p:XpathVersion xpathVersion="XPATH_1_0"/>
+                </L7p:XpathExpression>
+            </L7p:ResponseXpathAssertion>
+            <L7p:ResponseXpathAssertion>
+                <L7p:AssertionComment assertionComment="included">
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="Filter Match Operator"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:AssertionComment>
+                <L7p:VariablePrefix stringValue="filterMatch"/>
+                <L7p:XmlMsgSrc stringValue="msg"/>
+                <L7p:XpathExpression xpathExpressionValue="included">
+                    <L7p:Expression stringValue="/store/book[isbn]"/>
+                    <L7p:Namespaces mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="s"/>
+                            <L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/>
+                        </L7p:entry>
+                    </L7p:Namespaces>
+                    <L7p:XpathVersion xpathVersion="XPATH_1_0"/>
+                </L7p:XpathExpression>
+            </L7p:ResponseXpathAssertion>
+            <L7p:ResponseXpathAssertion>
+                <L7p:AssertionComment assertionComment="included">
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="Filter Equal Operator"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:AssertionComment>
+                <L7p:VariablePrefix stringValue="filterEquals"/>
+                <L7p:XmlMsgSrc stringValue="msg"/>
+                <L7p:XpathExpression xpathExpressionValue="included">
+                    <L7p:Expression stringValue="/store/book[price=12.99]"/>
+                    <L7p:Namespaces mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="s"/>
+                            <L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/>
+                        </L7p:entry>
+                    </L7p:Namespaces>
+                    <L7p:XpathVersion xpathVersion="XPATH_1_0"/>
+                </L7p:XpathExpression>
+            </L7p:ResponseXpathAssertion>
+            <L7p:ResponseXpathAssertion>
+                <L7p:AssertionComment assertionComment="included">
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="Filter Less Than or Equal"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:AssertionComment>
+                <L7p:VariablePrefix stringValue="filterLessThan"/>
+                <L7p:XmlMsgSrc stringValue="msg"/>
+                <L7p:XpathExpression xpathExpressionValue="included">
+                    <L7p:Expression stringValue="/store/book[price&lt;=8.95]"/>
+                    <L7p:Namespaces mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="s"/>
+                            <L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/>
+                        </L7p:entry>
+                    </L7p:Namespaces>
+                    <L7p:XpathVersion xpathVersion="XPATH_1_0"/>
+                </L7p:XpathExpression>
+            </L7p:ResponseXpathAssertion>
+            <L7p:ResponseXpathAssertion>
+                <L7p:AssertionComment assertionComment="included">
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="Filter Greater Than or Equal"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:AssertionComment>
+                <L7p:VariablePrefix stringValue="filterGreaterThan"/>
+                <L7p:XmlMsgSrc stringValue="msg"/>
+                <L7p:XpathExpression xpathExpressionValue="included">
+                    <L7p:Expression stringValue="/store/book[price>=12.99]"/>
+                    <L7p:Namespaces mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="s"/>
+                            <L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/>
+                        </L7p:entry>
+                    </L7p:Namespaces>
+                    <L7p:XpathVersion xpathVersion="XPATH_1_0"/>
+                </L7p:XpathExpression>
+            </L7p:ResponseXpathAssertion>
+            <L7p:ResponseXpathAssertion>
+                <L7p:AssertionComment assertionComment="included">
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="Filter Not Equal To"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:AssertionComment>
+                <L7p:VariablePrefix stringValue="filterNotEqual"/>
+                <L7p:XmlMsgSrc stringValue="msg"/>
+                <L7p:XpathExpression xpathExpressionValue="included">
+                    <L7p:Expression stringValue="/store/book[price!=12.99]"/>
+                    <L7p:Namespaces mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="s"/>
+                            <L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/>
+                        </L7p:entry>
+                    </L7p:Namespaces>
+                    <L7p:XpathVersion xpathVersion="XPATH_1_0"/>
+                </L7p:XpathExpression>
+            </L7p:ResponseXpathAssertion>
+            <L7p:HardcodedResponse>
+                <L7p:Base64ResponseBody stringValue="PG9sPgoKPGxpPiBGaXhlZCBTdWJzY3JpcHQ6IDwvbGk+IDxicj4KCTx1bD4KCSA8bGk+ICR7Zml4ZWRTdWJzY3JpcHQucmVzdWx0c1swXX0gPC9saT4KCTwvdWw+Cgk8YnI+Cgo8bGk+IEV4cHJlc3Npb24gU3Vic2NyaXB0OiA8L2xpPiA8YnI+Cgk8dWw+CgkgPGxpPiAke2V4cHJlc3Npb25TdWJzY3JpcHQucmVzdWx0c30gPC9saT4KCTwvdWw+Cgk8YnI+CgoKPGxpPiBGaWx0ZXIgTWF0Y2ggT3BlcmF0b3I6IDwvbGk+IDxicj4KCTx1bD4KCSA8bGk+ICR7ZmlsdGVyTWF0Y2gucmVzdWx0c1swXX08L2xpPiAKCSA8bGk+ICR7ZmlsdGVyTWF0Y2gucmVzdWx0c1sxXX0gPC9saT4KCTwvdWw+Cgk8YnI+Cgo8bGk+IEZpbHRlciBFcXVhbCBPcGVyYXRvcjogPC9saT4gPGJyPgoJPHVsPgoJIDxsaT4gJHtmaWx0ZXJFcXVhbHMucmVzdWx0fTwvbGk+IAoJPC91bD4KCTxicj4KCgo8bGk+IEZpbHRlciBMZXNzIFRoYW4gb3IgRXF1YWw6IDwvbGk+IDxicj4KCTx1bD4KCSA8bGk+ICR7ZmlsdGVyTGVzc1RoYW4ucmVzdWx0fTwvbGk+IAoJPC91bD4KCTxicj4KCjxsaT4gRmlsdGVyIEdyZWF0ZXIgVGhhbiBvciBFcXVhbDogPC9saT4gPGJyPgoJPHVsPgoJIDxsaT4gJHtmaWx0ZXJHcmVhdGVyVGhhbi5yZXN1bHRzWzBdfTwvbGk+IAoJIDxsaT4gJHtmaWx0ZXJHcmVhdGVyVGhhbi5yZXN1bHRzWzFdfTwvbGk+IAoJPC91bD4KCTxicj4KCjxsaT4gTm90IEVxdWFsIFRvOiA8L2xpPiA8YnI+Cgk8dWw+CgkgPGxpPiAke2ZpbHRlck5vdEVxdWFsLnJlc3VsdHNbMF19PC9saT4gCgkgPGxpPiAke2ZpbHRlck5vdEVxdWFsLnJlc3VsdHNbMV19PC9saT4gCgkgPGxpPiAke2ZpbHRlck5vdEVxdWFsLnJlc3VsdHNbMl19PC9saT4gCgk8L3VsPgoJPGJyPgo8L29sPg=="/>
+                <L7p:ResponseContentType stringValue="text/html; charset=UTF-8"/>
+            </L7p:HardcodedResponse>
+        </wsp:All>
+    </wsp:Policy>
+</exp:Export>

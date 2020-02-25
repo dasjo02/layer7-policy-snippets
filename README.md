@@ -149,6 +149,21 @@ Makes use of the OAuth test client ID and secret. If the test clients are not in
  <td></td>
 </tr> 
 
+<tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Get Difference Between 2 Dates.xml">Get Difference Between 2 Dates</a></td>
+ <td>Returns the differences, in number of days, between two dates passed as query parameters, date1 and date2.
+ i.e: https://gw.domain.com/endpoint?date1=12/1/2019&date2=12/20/2019
+ </td>
+ <td>Query parameter names can be modifed in the JavaScript assertion, lines 3 and 4.</td>
+</tr> 
+
+<tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Route To Multiple Hosts Stored In A CWP.xml">Route To Multiple Hosts Stored In A CWP</a></td>
+ <td>Allows a multivalued CWP to be used in a route assertion so ALL hosts are routed to. To add hosts for failover, see the routing strategy assertions.
+ </td>
+ <td>Policy assumes a CWP property named LAC-URL-HOST be defined and semi-colon delimited. The name and delimiter can be customized on line 7 in the split assertion.</td>
+</tr> 
+
 
 <tr>
 <td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Basic Auth to JWT.xml">Convert an Authorization header to JWT</a></td>

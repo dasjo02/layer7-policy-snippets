@@ -164,6 +164,13 @@ Makes use of the OAuth test client ID and secret. If the test clients are not in
  <td>Policy assumes a CWP property named LAC-URL-HOST be defined and semi-colon delimited. The name and delimiter can be customized on line 7 in the split assertion.</td>
 </tr> 
 
+<tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Scientific to decimal.xml">Scientific to decimal</a></td>
+ <td>Some of the Gateway assertions (JSON transform, JSONPath) will convert numbers larger than 10000000.00 to scientific notation. This policy will allow you to continue to use those assertions and use the JavaScript assertion to retrieve the origal value.
+ </td>
+ <td>Policy assumes a valid JSON payload is sent to the Gateway. This can be modified to any other message variable containing valid JSON. The Path expression will need to be modified based on the value you are retrieving.</td>
+</tr> 
+
 
 <tr>
 <td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Basic Auth to JWT.xml">Convert an Authorization header to JWT</a></td>

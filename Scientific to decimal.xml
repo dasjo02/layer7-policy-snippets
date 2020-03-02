@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:Export Version="3.0"
+    xmlns:L7p="http://www.layer7tech.com/ws/policy"
+    xmlns:exp="http://www.layer7tech.com/ws/policy/export" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+    <exp:References/>
+    <wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+        <wsp:All wsp:Usage="Required">
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** Convert scientific notation to decimal ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** https://github.com/dasjo02/layer7-policy-snippets                  ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:FaultLevel>
+                <L7p:LevelInfo soapFaultLevel="included">
+                    <L7p:Level intValue="4"/>
+                </L7p:LevelInfo>
+            </L7p:FaultLevel>
+            <L7p:EvaluateJsonPathExpressionV2>
+                <L7p:AssertionComment assertionComment="included">
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="Pull the number in scientific notation from the JSON"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:AssertionComment>
+                <L7p:Expression stringValue=".val"/>
+            </L7p:EvaluateJsonPathExpressionV2>
+            <L7p:JavaScript>
+                <L7p:AssertionComment assertionComment="included">
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="Use the Number function to convert to decimal"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:AssertionComment>
+                <L7p:ExecutionTimeout stringValue=""/>
+                <L7p:Name stringValue=""/>
+                <L7p:Script stringValueReference="inline"><![CDATA[var scientific = context.getVariable ('jsonPath.result');
+
+var dec = Number(scientific);
+context.setVariable("dec",dec);]]></L7p:Script>
+            </L7p:JavaScript>
+            <L7p:HardcodedResponse>
+                <L7p:Base64ResponseBody stringValue="U2NpZW50aWZpYzogJHtqc29uUGF0aC5yZXN1bHR9CkRlY2ltYWw6ICR7ZGVjfQ=="/>
+                <L7p:ResponseContentType stringValue="text/plain; charset=UTF-8"/>
+            </L7p:HardcodedResponse>
+        </wsp:All>
+    </wsp:Policy>
+</exp:Export>

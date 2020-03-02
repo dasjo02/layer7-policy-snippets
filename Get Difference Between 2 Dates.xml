@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:Export Version="3.0"
+    xmlns:L7p="http://www.layer7tech.com/ws/policy"
+    xmlns:exp="http://www.layer7tech.com/ws/policy/export" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+    <exp:References/>
+    <wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+        <wsp:All wsp:Usage="Required">
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** Get the difference between two dates using JavaScript ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** https://github.com/dasjo02/layer7-policy-snippets ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:FaultLevel>
+                <L7p:LevelInfo soapFaultLevel="included">
+                    <L7p:Level intValue="4"/>
+                </L7p:LevelInfo>
+            </L7p:FaultLevel>
+            <L7p:JavaScript>
+                <L7p:ExecutionTimeout stringValue=""/>
+                <L7p:Name stringValue="Date"/>
+                <L7p:Script stringValueReference="inline"><![CDATA[//Names of the query parameters can be modified here to accommodate your environment
+
+var date1 = new Date(context.getVariable('request.http.parameter.date1'));
+var date2 = new Date(context.getVariable('request.http.parameter.date2'));
+
+//optionally, dates can be hardcoded
+//var date1 = new Date('12/1/2010');
+//var date2 = new Date('12/15/2010');
+
+var diffTime = Math.abs(date2 - date1);
+var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+
+context.setVariable('diffDays', "Difference in days: " + diffDays);]]></L7p:Script>
+            </L7p:JavaScript>
+            <L7p:HardcodedResponse>
+                <L7p:Base64ResponseBody stringValue="JHtkaWZmRGF5c30K"/>
+                <L7p:ResponseContentType stringValue="text/plain; charset=UTF-8"/>
+            </L7p:HardcodedResponse>
+        </wsp:All>
+    </wsp:Policy>
+</exp:Export>

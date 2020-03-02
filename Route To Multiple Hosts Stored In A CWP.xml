@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:Export Version="3.0"
+    xmlns:L7p="http://www.layer7tech.com/ws/policy"
+    xmlns:exp="http://www.layer7tech.com/ws/policy/export" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+    <exp:References/>
+    <wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+        <wsp:All wsp:Usage="Required">
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** Route to multiple hosts stored in a CWP ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** https://github.com/dasjo02/layer7-policy-snippets                  ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:FaultLevel>
+                <L7p:LevelInfo soapFaultLevel="included">
+                    <L7p:Level intValue="4"/>
+                </L7p:LevelInfo>
+            </L7p:FaultLevel>
+            <L7p:Split>
+                <L7p:InputVariable stringValue="gateway.LAC-URL-HOST"/>
+                <L7p:OutputVariable stringValue="hosts"/>
+                <L7p:SplitPattern stringValue=";"/>
+                <L7p:SplitPatternRegEx booleanValue="false"/>
+            </L7p:Split>
+            <L7p:ForEachLoop L7p:Usage="Required" loopVariable="hosts" variablePrefix="lac">
+                <L7p:HttpRoutingAssertion>
+                    <L7p:ProtectedServiceUrl stringValue="${lac.current}"/>
+                    <L7p:RequestHeaderRules httpPassthroughRuleSet="included">
+                        <L7p:ForwardAll booleanValue="true"/>
+                        <L7p:Rules httpPassthroughRules="included">
+                            <L7p:item httpPassthroughRule="included">
+                                <L7p:Name stringValue="Cookie"/>
+                            </L7p:item>
+                            <L7p:item httpPassthroughRule="included">
+                                <L7p:Name stringValue="SOAPAction"/>
+                            </L7p:item>
+                        </L7p:Rules>
+                    </L7p:RequestHeaderRules>
+                    <L7p:RequestParamRules httpPassthroughRuleSet="included">
+                        <L7p:ForwardAll booleanValue="true"/>
+                        <L7p:Rules httpPassthroughRules="included"/>
+                    </L7p:RequestParamRules>
+                    <L7p:ResponseHeaderRules httpPassthroughRuleSet="included">
+                        <L7p:ForwardAll booleanValue="true"/>
+                        <L7p:Rules httpPassthroughRules="included">
+                            <L7p:item httpPassthroughRule="included">
+                                <L7p:Name stringValue="Set-Cookie"/>
+                            </L7p:item>
+                        </L7p:Rules>
+                    </L7p:ResponseHeaderRules>
+                    <L7p:SamlAssertionVersion intValue="2"/>
+                </L7p:HttpRoutingAssertion>
+            </L7p:ForEachLoop>
+        </wsp:All>
+    </wsp:Policy>
+</exp:Export>

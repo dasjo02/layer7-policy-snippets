@@ -165,6 +165,15 @@ Makes use of the OAuth test client ID and secret. If the test clients are not in
 </tr> 
 
 <tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Route To Multiple Hosts Stored In A CWP.xml">Validate JSON Structure</a></td>
+ <td>Validates the structure of a JSON document. This only validates that the JSON is valid, it will not validate the schema. For this purpose, use the Validate JSON schema assertion.
+ </td>
+ <td>Policy assumes the JSON document to be part of the request. This can easily be changed to accomodate the response or a message variable. Simply update the JavaScript assertion to use the appropriate variable.</td>
+</tr> 
+
+
+
+<tr>
 <td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Scientific to decimal.xml">Scientific to decimal</a></td>
  <td>Some of the Gateway assertions (JSON transform, JSONPath) will convert numbers larger than 10000000.00 to scientific notation. This policy will allow you to continue to use those assertions and use the JavaScript assertion to retrieve the origal value.
  </td>

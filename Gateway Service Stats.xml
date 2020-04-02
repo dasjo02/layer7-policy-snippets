@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:Export Version="3.0"
+    xmlns:L7p="http://www.layer7tech.com/ws/policy"
+    xmlns:exp="http://www.layer7tech.com/ws/policy/export" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+    <exp:References/>
+    <wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+        <wsp:All wsp:Usage="Required">
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** Retrieve Gateway service stats ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** Gateway Metrics assertion to find service usage over a 1 week period ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** https://github.com/dasjo02/layer7-policy-snippets ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:FaultLevel>
+                <L7p:LevelInfo soapFaultLevel="included">
+                    <L7p:Level intValue="4"/>
+                </L7p:LevelInfo>
+            </L7p:FaultLevel>
+            <L7p:GatewayMetrics>
+                <L7p:AssertionComment assertionComment="included">
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="Get 7 days of service data"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:AssertionComment>
+                <L7p:ClusterNodeVariable stringValue=""/>
+                <L7p:IntervalTimeUnit intervalTimeUnit="DAYS"/>
+                <L7p:IntervalType intervalType="RECENT_INTERVALS_WITHIN_TIME_PERIOD"/>
+                <L7p:NumberOfRecentIntervals stringValue=""/>
+                <L7p:NumberOfRecentIntervalsWithinTimePeriod stringValue="7"/>
+                <L7p:PublishedServiceVariable stringValue=""/>
+                <L7p:Resolution intValue="2"/>
+                <L7p:ResolutionVariable stringValue=""/>
+            </L7p:GatewayMetrics>
+            <L7p:SetVariable>
+                <L7p:AssertionComment assertionComment="included">
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="Set to a message variable for XPATH"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:AssertionComment>
+                <L7p:Base64Expression stringValue="JHttZXRyaWNzLmRvY3VtZW50fQ=="/>
+                <L7p:ContentType stringValue="text/xml; charset=utf-8"/>
+                <L7p:DataType variableDataType="message"/>
+                <L7p:VariableToSet stringValue="metrics"/>
+            </L7p:SetVariable>
+            <L7p:SetVariable>
+                <L7p:Base64Expression stringValue="fA=="/>
+                <L7p:VariableToSet stringValue="delimeter"/>
+            </L7p:SetVariable>
+            <L7p:ResponseXpathAssertion>
+                <L7p:AssertionComment assertionComment="included">
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="Get all service names"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:AssertionComment>
+                <L7p:VariablePrefix stringValue="name"/>
+                <L7p:XmlMsgSrc stringValue="metrics"/>
+                <L7p:XpathExpression xpathExpressionValue="included">
+                    <L7p:Expression stringValue="/gatewayMetrics/serviceStatistics/serviceStat/@name"/>
+                    <L7p:Namespaces mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="s"/>
+                            <L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/>
+                        </L7p:entry>
+                    </L7p:Namespaces>
+                    <L7p:XpathVersion xpathVersion="XPATH_1_0"/>
+                </L7p:XpathExpression>
+            </L7p:ResponseXpathAssertion>
+            <L7p:ForEachLoop L7p:Usage="Required"
+                loopVariable="name.elements" variablePrefix="items">
+                <L7p:ManipulateMultiValuedVariable>
+                    <L7p:SourceVariableName stringValue="items.current"/>
+                    <L7p:TargetVariableName stringValue="results"/>
+                </L7p:ManipulateMultiValuedVariable>
+                <L7p:ResponseXpathAssertion>
+                    <L7p:VariablePrefix stringValue="success"/>
+                    <L7p:XmlMsgSrc stringValue="metrics"/>
+                    <L7p:XpathExpression xpathExpressionValue="included">
+                        <L7p:Expression stringValue="/gatewayMetrics/serviceStatistics/serviceStat/successCount/text()"/>
+                        <L7p:Namespaces mapValue="included">
+                            <L7p:entry>
+                                <L7p:key stringValue="s"/>
+                                <L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/>
+                            </L7p:entry>
+                        </L7p:Namespaces>
+                        <L7p:XpathVersion xpathVersion="XPATH_1_0"/>
+                    </L7p:XpathExpression>
+                </L7p:ResponseXpathAssertion>
+                <L7p:ManipulateMultiValuedVariable>
+                    <L7p:SourceVariableName stringValue="success.element"/>
+                    <L7p:TargetVariableName stringValue="results"/>
+                </L7p:ManipulateMultiValuedVariable>
+                <L7p:ResponseXpathAssertion>
+                    <L7p:VariablePrefix stringValue="violations"/>
+                    <L7p:XmlMsgSrc stringValue="metrics"/>
+                    <L7p:XpathExpression xpathExpressionValue="included">
+                        <L7p:Expression stringValue="/gatewayMetrics/serviceStatistics/serviceStat/policyViolations/text()"/>
+                        <L7p:Namespaces mapValue="included">
+                            <L7p:entry>
+                                <L7p:key stringValue="s"/>
+                                <L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/>
+                            </L7p:entry>
+                        </L7p:Namespaces>
+                        <L7p:XpathVersion xpathVersion="XPATH_1_0"/>
+                    </L7p:XpathExpression>
+                </L7p:ResponseXpathAssertion>
+                <L7p:ManipulateMultiValuedVariable>
+                    <L7p:SourceVariableName stringValue="violations.element"/>
+                    <L7p:TargetVariableName stringValue="results"/>
+                </L7p:ManipulateMultiValuedVariable>
+                <L7p:ResponseXpathAssertion>
+                    <L7p:VariablePrefix stringValue="failures"/>
+                    <L7p:XmlMsgSrc stringValue="metrics"/>
+                    <L7p:XpathExpression xpathExpressionValue="included">
+                        <L7p:Expression stringValue="/gatewayMetrics/serviceStatistics/serviceStat/routingFailures/text()"/>
+                        <L7p:Namespaces mapValue="included">
+                            <L7p:entry>
+                                <L7p:key stringValue="s"/>
+                                <L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/>
+                            </L7p:entry>
+                        </L7p:Namespaces>
+                        <L7p:XpathVersion xpathVersion="XPATH_1_0"/>
+                    </L7p:XpathExpression>
+                </L7p:ResponseXpathAssertion>
+                <L7p:ManipulateMultiValuedVariable>
+                    <L7p:SourceVariableName stringValue="failures.element"/>
+                    <L7p:TargetVariableName stringValue="results"/>
+                </L7p:ManipulateMultiValuedVariable>
+                <L7p:ManipulateMultiValuedVariable>
+                    <L7p:SourceVariableName stringValue="delimeter"/>
+                    <L7p:TargetVariableName stringValue="results"/>
+                </L7p:ManipulateMultiValuedVariable>
+                <L7p:assertionComment>
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="Loop through the services for success counts, failures and violations"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:assertionComment>
+            </L7p:ForEachLoop>
+            <L7p:SetVariable>
+                <L7p:AssertionComment assertionComment="included">
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="Set the result back to a String variable"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:AssertionComment>
+                <L7p:Base64Expression stringValue="JHtyZXN1bHRzfQ=="/>
+                <L7p:VariableToSet stringValue="results"/>
+            </L7p:SetVariable>
+            <L7p:Split>
+                <L7p:AssertionComment assertionComment="included">
+                    <L7p:Properties mapValue="included">
+                        <L7p:entry>
+                            <L7p:key stringValue="RIGHT.COMMENT"/>
+                            <L7p:value stringValue="Split the result on the delimeter we defined"/>
+                        </L7p:entry>
+                    </L7p:Properties>
+                </L7p:AssertionComment>
+                <L7p:InputVariable stringValue="results"/>
+                <L7p:OutputVariable stringValue="output"/>
+                <L7p:SplitPattern stringValue="|"/>
+                <L7p:SplitPatternRegEx booleanValue="false"/>
+            </L7p:Split>
+            <L7p:ForEachLoop L7p:Usage="Required" loopVariable="output" variablePrefix="results">
+                <L7p:JavaScript>
+                    <L7p:AssertionComment assertionComment="included">
+                        <L7p:Properties mapValue="included">
+                            <L7p:entry>
+                                <L7p:key stringValue="RIGHT.COMMENT"/>
+                                <L7p:value stringValue="String off the leading comma"/>
+                            </L7p:entry>
+                        </L7p:Properties>
+                    </L7p:AssertionComment>
+                    <L7p:ExecutionTimeout stringValue=""/>
+                    <L7p:Name stringValue=""/>
+                    <L7p:Script stringValueReference="inline"><![CDATA[var resp = context.getVariable ('results.current');
+var myrespbody = resp.substr(1).trim();
+context.setVariable('myresp', myrespbody);
+]]></L7p:Script>
+                </L7p:JavaScript>
+                <L7p:SetVariable>
+                    <L7p:Base64Expression stringValue="JHtyZXN9DQoke215cmVzcH0="/>
+                    <L7p:VariableToSet stringValue="res"/>
+                </L7p:SetVariable>
+            </L7p:ForEachLoop>
+            <L7p:HardcodedResponse>
+                <L7p:Base64ResponseBody stringValue="JHtyZXN9"/>
+                <L7p:ResponseContentType stringValue="text/plain; charset=UTF-8"/>
+            </L7p:HardcodedResponse>
+        </wsp:All>
+    </wsp:Policy>
+</exp:Export>

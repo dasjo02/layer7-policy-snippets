@@ -193,6 +193,15 @@ Makes use of the OAuth test client ID and secret. If the test clients are not in
  </td>
 </tr> 
 
+
+<tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Gateway Service Stats.xml">Gateway Service Stats</a></td>
+ <td>Uses the Gateway Metrics tactical assertion to retrieve a list of service stats over a 7 day period. Returns a list of successful attempts, failures and policy violations. Using this data you can determine the most actively used/least used services.</td>
+ <td>
+ </td>
+</tr> 
+
+
 <tr>
 <td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Validate JWT Signature with PEM.xml">Validate JWT Signature with a PEM</a></td>
  <td>Example of validating a JWT signature using a PEM stored in a context variable</td>

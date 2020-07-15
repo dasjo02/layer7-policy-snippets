@@ -183,7 +183,16 @@ Makes use of the OAuth test client ID and secret. If the test clients are not in
 <tr>
 <td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Gateway Service Stats (Formatted).xml">Gateway Service Stats (Formatted)</a></td>
  <td>Uses the tactical Gateway Metrics assertion to produce a list of total service successes, violations and failures.</td>
- <td>It is required that you obtain and install the Gateway Metrics assertion before using this policy. The timeframe for the stats defaults to 7 days but is configurable.
+ <td>It is required that you obtain and install the Gateway Metrics assertion before using this policy. The timeframe for the stats defaults to 7 days but is configurable.<br><br>
+  This produces a formatted HTML page using a CSS grid.
+ </td>
+</tr> 
+
+<tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Gateway Service Stats (Unformatted).xml">Gateway Service Stats (Unformatted)</a></td>
+ <td>Uses the tactical Gateway Metrics assertion to produce a list of total service successes, violations and failures.</td>
+ <td>It is required that you obtain and install the Gateway Metrics assertion before using this policy. The timeframe for the stats defaults to 7 days but is configurable.<br><br>
+  This produces an unformatted/raw text result.
  </td>
 </tr> 
 

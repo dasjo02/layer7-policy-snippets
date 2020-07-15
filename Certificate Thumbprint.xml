@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:Export Version="3.0"
+    xmlns:L7p="http://www.layer7tech.com/ws/policy"
+    xmlns:exp="http://www.layer7tech.com/ws/policy/export" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+    <exp:References>
+        <IDProviderReference RefType="com.l7tech.console.policy.exporter.IdProviderReference">
+            <GOID>0000000000000000fffffffffffffffe</GOID>
+            <Name>Internal Identity Provider</Name>
+            <Props>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPGphdmEgdmVyc2lvbj0iMS44&#xd;
+LjBfMjMyIiBjbGFzcz0iamF2YS5iZWFucy5YTUxEZWNvZGVyIj4KIDxvYmplY3QgY2xhc3M9Imph&#xd;
+dmEudXRpbC5IYXNoTWFwIj4KICA8dm9pZCBtZXRob2Q9InB1dCI+CiAgIDxzdHJpbmc+YWRtaW5F&#xd;
+bmFibGVkPC9zdHJpbmc+CiAgIDxib29sZWFuPnRydWU8L2Jvb2xlYW4+CiAgPC92b2lkPgogPC9v&#xd;
+YmplY3Q+CjwvamF2YT4K</Props>
+            <TypeVal>1</TypeVal>
+        </IDProviderReference>
+    </exp:References>
+    <wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+        <wsp:All wsp:Usage="Required">
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** Provides a method to retrieve the thumbprint from a certificate of an authenticated user ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="**** https://github.com/dasjo02/layer7-policy-snippets ****"/>
+            </L7p:CommentAssertion>
+            <L7p:CommentAssertion>
+                <L7p:Comment stringValue="******************************************************"/>
+            </L7p:CommentAssertion>
+            <L7p:SslAssertion>
+                <L7p:CheckCertValidity booleanValue="false"/>
+                <L7p:RequireClientAuthentication booleanValue="true"/>
+            </L7p:SslAssertion>
+            <L7p:Authentication>
+                <L7p:IdentityProviderOid goidValue="0000000000000000fffffffffffffffe"/>
+            </L7p:Authentication>
+            <L7p:CertificateAttributes/>
+            <L7p:EncodeDecode>
+                <L7p:CharacterEncoding stringValueNull="null"/>
+                <L7p:SourceVariableName stringValue="certificate.thumbprintSHA1"/>
+                <L7p:TargetContentType stringValue="application/octet-stream"/>
+                <L7p:TargetDataType variableDataType="message"/>
+                <L7p:TargetVariableName stringValue="thumbprint"/>
+                <L7p:TransformType transformType="BASE64_DECODE"/>
+            </L7p:EncodeDecode>
+            <L7p:EncodeDecode>
+                <L7p:SourceVariableName stringValue="thumbprint"/>
+                <L7p:TargetDataType variableDataType="string"/>
+                <L7p:TargetVariableName stringValue="thumbprint"/>
+                <L7p:TransformType transformType="HEX_ENCODE"/>
+            </L7p:EncodeDecode>
+            <L7p:HardcodedResponse>
+                <L7p:Base64ResponseBody stringValue="VGh1bWJwcmludDogJHt0aHVtYnByaW50fQ=="/>
+                <L7p:ResponseContentType stringValue="text/plain; charset=UTF-8"/>
+            </L7p:HardcodedResponse>
+        </wsp:All>
+    </wsp:Policy>
+</exp:Export>

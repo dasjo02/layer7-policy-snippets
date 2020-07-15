@@ -182,7 +182,7 @@ Makes use of the OAuth test client ID and secret. If the test clients are not in
 
 <tr>
 <td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Gateway Service Stats (Formatted).xml">Gateway Service Stats (Formatted)</a></td>
- <td>Uses the tactical Gateway Metrics assertion to produce a list of total service successes, violations and failures.</td>
+ <td>Uses the Gateway Metrics tactical assertion to retrieve a list of service stats over a 7 day period. Returns a list of successful attempts, failures and policy violations. Using this data you can determine the most actively used/least used services</td>
  <td>It is required that you obtain and install the Gateway Metrics assertion before using this policy. The timeframe for the stats defaults to 7 days but is configurable.<br><br>
   This produces a formatted HTML page using a CSS grid.
  </td>
@@ -190,7 +190,7 @@ Makes use of the OAuth test client ID and secret. If the test clients are not in
 
 <tr>
 <td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Gateway Service Stats (Unformatted).xml">Gateway Service Stats (Unformatted)</a></td>
- <td>Uses the tactical Gateway Metrics assertion to produce a list of total service successes, violations and failures.</td>
+ <td>Uses the Gateway Metrics tactical assertion to retrieve a list of service stats over a 7 day period. Returns a list of successful attempts, failures and policy violations. Using this data you can determine the most actively used/least used services</td>
  <td>It is required that you obtain and install the Gateway Metrics assertion before using this policy. The timeframe for the stats defaults to 7 days but is configurable.<br><br>
   This produces an unformatted/raw text result.
  </td>
@@ -210,8 +210,8 @@ Makes use of the OAuth test client ID and secret. If the test clients are not in
 
 
 <tr>
-<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Gateway Service Stats.xml">Gateway Service Stats</a></td>
- <td>Uses the Gateway Metrics tactical assertion to retrieve a list of service stats over a 7 day period. Returns a list of successful attempts, failures and policy violations. Using this data you can determine the most actively used/least used services.</td>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Certificate Thumbprint.xml">Certificate Thumbprint</a></td>
+ <td>Provides a method to retrieve the hex-encoded thumbprint from a certificate of an authenticated user.</td>
  <td>
  </td>
 </tr> 

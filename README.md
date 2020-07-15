@@ -180,6 +180,12 @@ Makes use of the OAuth test client ID and secret. If the test clients are not in
  <td>Policy assumes a valid JSON payload is sent to the Gateway. This can be modified to any other message variable containing valid JSON. The Path expression will need to be modified based on the value you are retrieving.</td>
 </tr> 
 
+<tr>
+<td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Gateway Service Stats (Formatted).xml">Gateway Service Stats (Formatted)</a></td>
+ <td>Uses the tactical Gateway Metrics assertion to produce a list of total service successes, violations and failures.</td>
+ <td>It is required that you obtain and install the Gateway Metrics assertion before using this policy. The timeframe for the stats defaults to 7 days but is configurable.
+ </td>
+</tr> 
 
 <tr>
 <td><a href="https://github.com/dasjo02/layer7-policy-snippets/blob/master/Basic Auth to JWT.xml">Convert an Authorization header to JWT</a></td>

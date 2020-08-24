@@ -5,9 +5,6 @@
     <exp:References/>
     <wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
         <wsp:All wsp:Usage="Required">
-            <L7p:CommentAssertion>
-                <L7p:Comment stringValue="**** A simple HTTP 302 redirect ****"/>
-            </L7p:CommentAssertion>
             <L7p:HardcodedResponse>
                 <L7p:AssertionComment assertionComment="included">
                     <L7p:Properties mapValue="included">

@@ -23,9 +23,6 @@ YmplY3Q+CjwvamF2YT4K</Props>
                 <L7p:Comment stringValue="**** Convert Authorization header to JWT ****"/>
             </L7p:CommentAssertion>
             <L7p:CommentAssertion>
-                <L7p:Comment stringValue="**** https://github.com/dasjo02/layer7-policy-snippets                  ****"/>
-            </L7p:CommentAssertion>
-            <L7p:CommentAssertion>
                 <L7p:Comment stringValue="******************************************************"/>
             </L7p:CommentAssertion>
             <L7p:FaultLevel>

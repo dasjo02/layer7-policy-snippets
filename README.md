@@ -1,3 +1,7 @@
+A set of sample policies for the Layer 7 API Gateway. These are intended to provide guidance to use specific assertions or perform specific operations.
+They are not full policies in that they do not include some best practices such as use of SSL or authenticaiton. They are to be used as a guide to desiging your own policies and not production ready. You should thoroughly test any policies in lower environments.
+<br>
+
 <table>
 <thead>
 <tr>

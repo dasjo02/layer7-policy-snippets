@@ -16,9 +16,7 @@
             <L7p:CommentAssertion>
                 <L7p:Comment stringValue="**** A very basic OAuth protected endpoint                 ****"/>
             </L7p:CommentAssertion>
-            <L7p:CommentAssertion>
-                <L7p:Comment stringValue="**** https://github.com/dasjo02/layer7-policy-snippets ****"/>
-            </L7p:CommentAssertion>
+
             <L7p:CommentAssertion>
                 <L7p:Comment stringValue="******************************************************"/>
             </L7p:CommentAssertion>

@@ -11,9 +11,7 @@
             <L7p:CommentAssertion>
                 <L7p:Comment stringValue="**** Manipulating variables with the JavaScript assertion  ****"/>
             </L7p:CommentAssertion>
-            <L7p:CommentAssertion>
-                <L7p:Comment stringValue="**** https://github.com/dasjo02/layer7-policy-snippets ****"/>
-            </L7p:CommentAssertion>
+
             <L7p:CommentAssertion>
                 <L7p:Comment stringValue="******************************************************"/>
             </L7p:CommentAssertion>

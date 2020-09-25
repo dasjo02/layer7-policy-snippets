@@ -24,9 +24,7 @@
             <L7p:CommentAssertion>
                 <L7p:Comment stringValue="**** Store / Retrieve / Delete OTK Session data  ****"/>
             </L7p:CommentAssertion>
-            <L7p:CommentAssertion>
-                <L7p:Comment stringValue="**** https://github.com/dasjo02/layer7-policy-snippets ****"/>
-            </L7p:CommentAssertion>
+
             <L7p:CommentAssertion>
                 <L7p:Comment stringValue="******************************************************"/>
             </L7p:CommentAssertion>

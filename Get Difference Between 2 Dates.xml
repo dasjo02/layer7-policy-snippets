@@ -12,9 +12,6 @@
                 <L7p:Comment stringValue="**** Get the difference between two dates using JavaScript ****"/>
             </L7p:CommentAssertion>
             <L7p:CommentAssertion>
-                <L7p:Comment stringValue="**** https://github.com/dasjo02/layer7-policy-snippets ****"/>
-            </L7p:CommentAssertion>
-            <L7p:CommentAssertion>
                 <L7p:Comment stringValue="******************************************************"/>
             </L7p:CommentAssertion>
             <L7p:FaultLevel>
